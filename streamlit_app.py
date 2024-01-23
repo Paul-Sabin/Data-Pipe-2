@@ -1,5 +1,12 @@
 import gspread
+
 import pandas as pd
+import numpy as np
+
+import streamlit as st
+import streamlit.web.cli as stcli
+import altair as alt
+
 
 def get_data():
     gc = gspread.service_account(filename="C:\Asus WebStorage\psabin@gmail.com\MySyncFolder\Data Science Course\_offline\service_account.json")
@@ -9,4 +16,9 @@ def get_data():
     df = pd.DataFrame(list_of_lists, columns = ['date', 'price'])
     return df
 
-get_data()
+tesla_chart = get_data()
+
+st.write("palm tree")
+st.write("balloon")
+
+st.line_chart(tesla_chart, x="date", y="price")
