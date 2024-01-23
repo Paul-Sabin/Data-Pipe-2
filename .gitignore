@@ -1,2 +1,2 @@
-api_request_package/
-__pycache__/
+.env
+service_account.json
