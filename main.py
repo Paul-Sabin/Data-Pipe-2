@@ -10,6 +10,9 @@ def get_data():
     API_KEY = os.getenv('IEX_API_KEY') #Best way. Can save many API keys in one file and reference them.
     url = f"{BASE_URL}token={API_KEY}"
     response = requests.get(url)
+    print(response.status_code)
+    print()
+    print(response.text)
     values = response.json()
     print(values)
     return values
