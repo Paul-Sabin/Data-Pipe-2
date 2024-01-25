@@ -19,6 +19,8 @@ def get_data_from_google_sheet():
 
 tesla_chart = get_data_from_google_sheet()
 
+tesla_chart['date'] = pd.to_datetime(tesla_chart['date'])
+
 # Create a candlestick chart
 fig = go.Figure(data=[go.Candlestick(x=tesla_chart['date'],
                 open=tesla_chart['opening price'],
@@ -32,7 +34,7 @@ fig = go.Figure(data=[go.Candlestick(x=tesla_chart['date'],
 fig.update_layout(
     title='TSLA Stock Price',
     xaxis=dict(
-    tickangle=-45,
+    tickangle=-90,
     tickformat='%d-%m',        
     tickmode='linear',
     tick0=0,
