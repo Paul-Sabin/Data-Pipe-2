@@ -19,7 +19,7 @@ def get_data_from_google_sheet():
 
 tesla_chart = get_data_from_google_sheet()
 
-tesla_chart['date'] = pd.to_datetime(tesla_chart['date'])
+# tesla_chart['date'] = pd.to_datetime(tesla_chart['date']) # This caused a couple of issues
 
 # Create a candlestick chart
 fig = go.Figure(data=[go.Candlestick(x=tesla_chart['date'],
@@ -36,9 +36,9 @@ fig.update_layout(
     xaxis=dict(
     tickangle=-90,
     tickformat='%d-%m',        
-    # tickmode='linear',
-    # tick0=0,
-    # dtick=3
+    tickmode='linear',
+    tick0=0,
+    dtick=3
     ),
     xaxis_title='Date',
     yaxis_title='Price in USD',
