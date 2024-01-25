@@ -31,12 +31,15 @@ fig = go.Figure(data=[go.Candlestick(x=tesla_chart['date'],
 # Updating layout for better readability
 fig.update_layout(
     title='TSLA Stock Price',
+    xaxis=dict(
+    tickmode='linear',
+    tick0=0,
+    dtick=5
+    ),
     xaxis_title='Date',
     yaxis_title='Price in USD',
     xaxis_rangeslider_visible=False
 )
-
-fig
 
 # Display the figure in Streamlit
 st.plotly_chart(fig)
