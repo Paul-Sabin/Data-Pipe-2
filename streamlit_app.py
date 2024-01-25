@@ -13,12 +13,9 @@ def get_data_from_google_sheet():
     wks = gc.open("CAB DataPipeline Tesla Stock Price").sheet1
     full_list_of_lists = wks.get_all_values()
     list_of_lists = full_list_of_lists[1:]
-    df = pd.DataFrame(list_of_lists, columns = ['date', 'price'])
+    df = pd.DataFrame(list_of_lists, columns = ['date', 'closing price', "day's high", "day's low", "opening price", "trade volume", "$ change", "% change"])
     return df
 
 tesla_chart = get_data_from_google_sheet()
 
-st.write("palm tree")
-st.write("balloon")
-
-st.line_chart(tesla_chart, x="date", y="price")
+st.dataframe(tesla_chart)
