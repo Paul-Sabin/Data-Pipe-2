@@ -32,9 +32,11 @@ fig = go.Figure(data=[go.Candlestick(x=tesla_chart['date'],
 fig.update_layout(
     title='TSLA Stock Price',
     xaxis=dict(
+    tickangle=-45,
+    tickformat='%d-%m',        
     tickmode='linear',
     tick0=0,
-    dtick=5
+    dtick=3
     ),
     xaxis_title='Date',
     yaxis_title='Price in USD',
