@@ -1,4 +1,4 @@
-from main import get_data
+from PreviousCode.main import get_data
 import gspread
 
 def save_data():

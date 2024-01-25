@@ -1,3 +1,4 @@
+# I think the whole idea behind this script is wrong. My streamlit app is not a Lambda function.
 import gspread
 
 import pandas as pd
