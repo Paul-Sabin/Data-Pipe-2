@@ -2,6 +2,7 @@ import gspread
 
 import pandas as pd
 import numpy as np
+import plotly.graph_objects as go
 
 import streamlit as st
 import streamlit.web.cli as stcli
@@ -17,5 +18,27 @@ def get_data_from_google_sheet():
     return df
 
 tesla_chart = get_data_from_google_sheet()
+
+# Create a candlestick chart
+fig = go.Figure(data=[go.Candlestick(x=tesla_chart['date'],
+                open=tesla_chart['opening price'],
+                high=tesla_chart['day\'s high'],
+                low=tesla_chart['day\'s low'],
+                close=tesla_chart['closing price'],
+                increasing_line_color='green', increasing_fillcolor='green',
+                decreasing_line_color='red', decreasing_fillcolor='red')])
+
+# Updating layout for better readability
+fig.update_layout(
+    title='TSLA Stock Price',
+    xaxis_title='Date',
+    yaxis_title='Price in USD',
+    xaxis_rangeslider_visible=False
+)
+
+fig
+
+# Display the figure in Streamlit
+st.plotly_chart(fig)
 
 st.dataframe(tesla_chart)
