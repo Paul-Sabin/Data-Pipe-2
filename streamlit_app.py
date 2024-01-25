@@ -36,9 +36,9 @@ fig.update_layout(
     xaxis=dict(
     tickangle=-90,
     tickformat='%d-%m',        
-    tickmode='linear',
-    tick0=0,
-    dtick=3
+    # tickmode='linear',
+    # tick0=0,
+    # dtick=3
     ),
     xaxis_title='Date',
     yaxis_title='Price in USD',
