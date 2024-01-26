@@ -42,7 +42,7 @@ fig.update_layout(
     ),
     xaxis_title='Date',
     yaxis_title='Price in USD',
-    xaxis_rangeslider_visible=False
+    xaxis_rangeslider_visible=True
 )
 
 # Display the figure in Streamlit
